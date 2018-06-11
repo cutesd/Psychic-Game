@@ -5,7 +5,7 @@ var PsychicGame = function (options) {
     var winCnt = 0;
     var loseCnt = 0;
     var remain = 0;
-    var guesses = "";
+    var guesses = [];
     var answer = "";
 
     var winOut = document.getElementById('winOut');
@@ -27,11 +27,12 @@ var PsychicGame = function (options) {
 
     function startGame() {
         remain = options.NumGuesses;
-        guesses = "";
+        guesses = [];
         var abc = "abcdefghiklmnopqrstuvwxyz";
         var rnum = Math.floor(Math.random() * abc.length);
         answer = abc.substr(rnum, 1);
-        // console.log(answer);
+        // leaving this in for ease of testing functionality
+        console.log(answer);
         display();
     }
 
@@ -51,7 +52,7 @@ var PsychicGame = function (options) {
     function wrongAnswer(ltr){
         remain--;
         if(remain > 0){
-            guesses += ltr.toUpperCase();
+            guesses.push(ltr.toUpperCase());
             display();
         } else{
             alert("Sorry, you lost.  Please try again.");
