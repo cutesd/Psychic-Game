@@ -8,12 +8,20 @@ var PsychicGame = function (options) {
     var guesses = [];
     var answer = "";
 
+    var jumbo = document.getElementById('jumbo-default');
+    var specialJumbo;
+
     var winOut = document.getElementById('winOut');
     var loseOut = document.getElementById('lossOut');
     var remainOut = document.getElementById('remainOut');
     var guessOut = document.getElementById('guessOut');
 
+    var btns = document.querySelectorAll('.btn');
+
     this.play = function () {
+        for(var i=0; i<btns.length; i++){
+            btns[i].addEventListener("click", startGame);
+        }
         startGame();
     }
 
@@ -26,6 +34,8 @@ var PsychicGame = function (options) {
     }
 
     function startGame() {
+        if(specialJumbo) specialJumbo.classList.add('d-none');
+        jumbo.classList.remove('d-none');
         remain = options.NumGuesses;
         guesses = [];
         var abc = "abcdefghiklmnopqrstuvwxyz";
@@ -43,21 +53,28 @@ var PsychicGame = function (options) {
         guessOut.textContent = guesses;
     }
 
-    function winGame(){
-        alert("YOU WIN!!! \n The letter was: " + answer.toUpperCase());
+    function winGame() {
+        jumbo.classList.add('d-none');
+        specialJumbo = document.getElementById('jumbo-win');
+        document.getElementById('winLtr').textContent = answer.toUpperCase();
+        specialJumbo.classList.remove('d-none');
         winCnt++;
-        startGame();
+        display();
+        // startGame();
     }
 
-    function wrongAnswer(ltr){
+    function wrongAnswer(ltr) {
         remain--;
-        if(remain > 0){
+        if (remain > 0) {
             guesses.push(ltr.toUpperCase());
             display();
-        } else{
-            alert("Sorry, you lost.  Please try again.");
+        } else {
+            jumbo.classList.add('d-none');
+            specialJumbo = document.getElementById('jumbo-lose');
+            specialJumbo.classList.remove('d-none');
             loseCnt++;
-            startGame();
+            display();
+            // startGame();
         }
     }
 

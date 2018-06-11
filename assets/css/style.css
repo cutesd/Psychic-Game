@@ -1,0 +1,24 @@
+
+a{
+    color:#FFF!important;
+}
+
+.jumbotron{
+    height:269px;
+}
+
+.table td{
+    width: 250px;
+}
+
+.font-normal{
+    font-weight:300;
+}
+
+#jumbo-win{
+    background: url('../images/fireworks.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #FFF;
+}

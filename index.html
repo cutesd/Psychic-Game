@@ -21,23 +21,63 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="jumbotron jumbotron-fluid text-center" id="jumbo-default">
         <h1>The Psychic Game</h1>
         <h4>Guess What Letter I'm thinking of ...</h4>
+        <hr class="my-2">
+        <p class="text-muted">Press any key to play.</p>
+    </div>
 
-        <p>Wins:
-            <span id="winOut"></span>
-        </p>
-        <p>Losses:
-            <span id="lossOut"></span>
-        </p>
-        <p>Guesses Left:
-            <span id="remainOut"></span>
-        </p>
-        <p>Your Guesses so far:
-            <span id="guessOut"></span>
-        </p>
+    <div class="jumbotron jumbotron-fluid text-center d-none" id="jumbo-win">
+        <h1>YOU WIN!!!</h1>
+        <h4>The letter was:
+            <span id="winLtr"></span>
+        </h4>
+        <hr class="my-2">
+        <a class="btn btn-danger btn-lg" role="button">Play Again</a>
+    </div>
 
+    <div class="jumbotron jumbotron-fluid text-center d-none" id="jumbo-lose">
+        <h1>Sorry, you lose.</h1>
+        <h4 class="font-normal text-muted">You have exceeded your maximum number of guesses.</h4>
+        <hr class="my-2">
+        <a class="btn btn-danger btn-lg" role="button">Play Again</a>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Wins:</td>
+                            <td>
+                                <span id="winOut"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Losses:</td>
+                            <td>
+                                <span id="lossOut"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Guesses Left:</td>
+                            <td>
+                                <span id="remainOut"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Your Guesses so far:</td>
+                            <td>
+                                <span id="guessOut"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
     </div>
 
     <!-- ==========================  JAVASCRIPT ===================================== -->
