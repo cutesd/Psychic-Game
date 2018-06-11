@@ -1,11 +1,11 @@
 
 //
-var psychicGame = function (options) {
+var PsychicGame = function (options) {
 
     var winCnt = 0;
     var loseCnt = 0;
     var remain = 0;
-    var guesses = "UIN";
+    var guesses = "";
     var answer = "";
 
     var winOut = document.getElementById('winOut');
@@ -15,7 +15,6 @@ var psychicGame = function (options) {
 
     this.play = function () {
         startGame();
-
     }
 
     this.guess = function (ltr) {
@@ -32,7 +31,7 @@ var psychicGame = function (options) {
         var abc = "abcdefghiklmnopqrstuvwxyz";
         var rnum = Math.floor(Math.random() * abc.length);
         answer = abc.substr(rnum, 1);
-        console.log(answer);
+        // console.log(answer);
         display();
     }
 
@@ -62,14 +61,14 @@ var psychicGame = function (options) {
     }
 
 }
-
-var myGame = new psychicGame({
+// Instantiate PsychicGame
+/* optional guess count change */
+var myGame = new PsychicGame({
     NumGuesses: 10
 });
 myGame.play();
 
 document.addEventListener('keypress', (event) => {
-    const keyName = event.key;
-    myGame.guess(keyName);
+    myGame.guess(event.key);
 
 });
