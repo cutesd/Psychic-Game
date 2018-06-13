@@ -68,7 +68,7 @@ var PsychicGame = function (options) {
         if (remain > 0) {
             guesses.push(ltr.toUpperCase());
             display();
-        } else {
+        } else if(remain === 0) {
             jumbo.classList.add('d-none');
             specialJumbo = document.getElementById('jumbo-lose');
             specialJumbo.classList.remove('d-none');
